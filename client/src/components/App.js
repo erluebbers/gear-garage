@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
-import Login from "./Login"
+import LoginHome from "./LoginHome"
 import ProfileHome from "./ProfileHome"
 
 // import { Switch, Route } from "react-router-dom";
@@ -24,7 +24,7 @@ function App() {
     <div>
       <h1>Gear Garage: Organizing for Adventure and Outdoor travel</h1>
       {!user ? (
-        <Login />
+        <LoginHome onLogin={setUser}/>
           ) : (
         <ProfileHome />
       )}
