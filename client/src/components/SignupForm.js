@@ -32,6 +32,7 @@ function Signup( {onLogin} ) {
         r.json().then((err) => setErrors(err.errors));
       }
     });
+    e.target.reset()
   }
 
 
@@ -81,9 +82,7 @@ function Signup( {onLogin} ) {
 
         <button type="submit">Sign Up</button>
 
-        {errors.map((err) => (
-          <error key={err}>{err}</error>
-        ))}
+        {errors}
     </form>
     </div>
   );

@@ -1,5 +1,5 @@
 import '../App.css';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 
 function LoginForm( {onLogin} ) {
@@ -22,13 +22,14 @@ function LoginForm( {onLogin} ) {
         r.json().then((err) => setErrors(err.errors));
       }
     });
+    e.target.reset()
   }
 
   return (
     <div>
       <h3>Login</h3>
       <form onSubmit={handleSubmit}>
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
@@ -36,7 +37,7 @@ function LoginForm( {onLogin} ) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -45,11 +46,8 @@ function LoginForm( {onLogin} ) {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit">Login</button>
-          {errors.map((err) => (
-            {err}
-          ))}
       </form>
-
+      {errors}
     </div>
   );
 }
