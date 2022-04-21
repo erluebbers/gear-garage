@@ -2,15 +2,15 @@ import '../App.css';
 import React from "react";
 
 
-function ProfileHome() {
+function Homepage() {
 
 
 
   return (
     <div>
-      <h1>Profile Home</h1>
+      <h1>Profile Landing Page</h1>
     </div>
   );
 }
 
-export default ProfileHome;
+export default Homepage;

@@ -1,13 +1,14 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
-import LoginHome from "./LoginHome"
-import ProfileHome from "./ProfileHome"
+import Login from "./Login"
+import Homepage from "./Homepage"
 import NavBar from "./NavBar"
+import GearHome from "./GearHome"
+import TripHome from "./TripHome"
 
 function App() {
   const [user, setUser] = useState(null)
-  const [page, setPage] = useState("/")
 
   //Auto-Login if there is a user session active
   useEffect(() => {
@@ -18,24 +19,36 @@ function App() {
     });
   }, []);
 
-
+  const handleLogoutClick = () => {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
 
 
   return (
     <div>
-      <NavBar user={user} setUser={setUser} onChangePage={setPage}/>
+      <NavBar user={user} handleLogoutClick={handleLogoutClick}/>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           {user ? (
-            <ProfileHome />
+            <Homepage user={user} />
               ) : (
-            <LoginHome onLogin={setUser}/>
+            <Login onLogin={setUser}/>
           )}
         </Route>
-        <Route path="*">
-          <h1>404 not found</h1>
+        <Route path="/home">
+          <Homepage />
         </Route>
-        </Switch>
+        <Route path="/gear">
+          <GearHome />
+        </Route>
+        <Route path="/trips">
+          <TripHome />
+        </Route>
+      </Switch>
     </div>
   );
 }
