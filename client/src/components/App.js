@@ -22,12 +22,10 @@ function App() {
 
   //fetch Gear
   useEffect(() => {
-    fetch("/items").then((r) => {
-      if (r.ok) {
-        r.json().then((items) => setGear(items))
-      }
-    })
-  }, []);
+    fetch("/items")
+      .then(r => r.json())
+      .then(data => console.log(data))
+  }, [])
 
 
   //log a user out

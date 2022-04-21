@@ -2,13 +2,17 @@ import '../App.css';
 import React from "react";
 
 
-function GearCard( ) {
-
+function GearCard( {item} ) {
+  const {name, description, condition} = item
 
 
   return (
-    <div>
-      <h1>Gear Card</h1>
+    <div className="gear-card">
+      <ul>
+        <li>Name: {name}</li>
+        <li>Description: {description}</li>
+        <li>Condition: {condition}</li>
+      </ul>
     </div>
   );
 }

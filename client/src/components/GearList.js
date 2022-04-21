@@ -3,13 +3,16 @@ import React from "react";
 import GearCard from './GearCard';
 
 
-function GearList( ) {
+function GearList( {gear} ) {
 
+  const list = gear.map(item => {
+    return <GearCard item={item} key={item.id}/>
+  })
 
 
   return (
     <div>
-      <h1>Gear Home</h1>
+      {list}
     </div>
   );
 }
