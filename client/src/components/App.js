@@ -9,6 +9,7 @@ import TripHome from "./TripHome"
 
 function App() {
   const [user, setUser] = useState(null)
+  const [gear, setGear] = useState([])
 
   //Auto-Login if there is a user session active
   useEffect(() => {
@@ -19,6 +20,17 @@ function App() {
     });
   }, []);
 
+  //fetch Gear
+  useEffect(() => {
+    fetch("/items").then((r) => {
+      if (r.ok) {
+        r.json().then((items) => setGear(items))
+      }
+    })
+  }, []);
+
+
+  //log a user out
   const handleLogoutClick = () => {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -43,7 +55,7 @@ function App() {
           <Homepage />
         </Route>
         <Route path="/gear">
-          <GearHome />
+          <GearHome gear={gear} setGear={setGear}/>
         </Route>
         <Route path="/trips">
           <TripHome />

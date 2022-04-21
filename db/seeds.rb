@@ -6,5 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Beginning seeding..."
 
 
+Item.create(name: "Kelty Sleeping Bag", description: "blue/red 0 degree sleeping bag", condition: 3, user_id: 1)
+Item.create(name: "MSR 1-P Tent", description: "gray/red single person tent with fly", condition: 5, user_id: 1)
+Item.create(name: "Trekking Poles", description: "TrailBuddy Hiking Poles", condition: 2, user_id: 1)
+Item.create(name: "Blue Diamond Head Lamp", description: "Black Headlamp with red light", condition: 5, user_id: 1)
+Item.create(name: "Mammut Pack", description: "blue/red 0 degree sleeping bag", condition: 3, user_id: 1)
+
+puts "Finished seeding..."

@@ -1,14 +1,17 @@
 import '../App.css';
 import React from "react";
+import NewGearForm from './NewGearForm';
+import GearList from './GearList';
 
 
-function GearHome() {
+function GearHome( { gear, setGear } ) {
 
 
 
   return (
     <div>
-      <h1>Gear Home</h1>
+      <NewGearForm />
+      <GearList gear={gear}/>
     </div>
   );
 }
