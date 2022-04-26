@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     fetch("/items")
       .then(r => r.json())
-      .then(data => console.log(data))
+      .then(data => setGear(data))
   }, [])
 
 
@@ -53,7 +53,7 @@ function App() {
           <Homepage />
         </Route>
         <Route path="/gear">
-          <GearHome gear={gear} setGear={setGear}/>
+          <GearHome gear={gear} setGear={setGear} user={user}/>
         </Route>
         <Route path="/trips">
           <TripHome />
