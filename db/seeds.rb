@@ -15,4 +15,18 @@ Item.create(name: "Trekking Poles", description: "TrailBuddy Hiking Poles", cond
 Item.create(name: "Blue Diamond Head Lamp", description: "Black Headlamp with red light", condition: 5, user_id: 1)
 Item.create(name: "Mammut Pack", description: "blue/red 0 degree sleeping bag", condition: 3, user_id: 1)
 
+Trip.create(title: "BANFF", trip_description:"5 day car-camping at Johnson Campgroun", year: 2018, user_id: 1)
+Trip.create(title: "Sawtooth Wilderness", trip_description:"5-day backpacking from Stanley", year: 2021, user_id: 1)
+Trip.create(title: "Enchantments Wilderness", trip_description:"3 day backpacking to Stuart Lake", year: 2021, user_id: 1)
+Trip.create(title: "Gros Morne National Park", trip_description:"Car Camping for 7 days", year: 2016, user_id: 1)
+
+Packlist.create(user_id: 1, item_id: 1, trip_id: 1)
+Packlist.create(user_id: 1, item_id: 2, trip_id: 1)
+Packlist.create(user_id: 1, item_id: 3, trip_id: 2)
+Packlist.create(user_id: 1, item_id: 4, trip_id: 2)
+Packlist.create(user_id: 1, item_id: 5, trip_id: 3)
+Packlist.create(user_id: 1, item_id: 1, trip_id: 3)
+Packlist.create(user_id: 1, item_id: 2, trip_id: 4)
+Packlist.create(user_id: 1, item_id: 3, trip_id: 4)
+
 puts "Finished seeding..."

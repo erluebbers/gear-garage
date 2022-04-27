@@ -54,7 +54,7 @@ function NewGearForm( {gear, setGear} ) {
         </input>
         <label htmlFor="condition">condition</label>
         <select onChange={(e) => setCondition(e.target.value)} name="condition" id="condition">
-          <option value="Rating">Select Rating (1-5)</option>
+          <option value="Condition">Select Condition (1-5)</option>
           <option value="1">1 (poor)</option>
           <option value="2">2 (usable)</option>
           <option value="3">3 (good)</option>

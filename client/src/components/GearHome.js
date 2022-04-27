@@ -4,20 +4,10 @@ import NewGearForm from './NewGearForm';
 import GearList from './GearList';
 
 
-function GearHome( { gear, setGear } ) {
+function GearHome( { gear, setGear, handleDelete, handleUpdate } ) {
 
-  const handleDelete = (id) => {
-    fetch(`/items/${id}`, {
-      method: "DELETE",
-    })
-    .then((r) => r.json())
-    .then(() => onDelete(id))
-  }
 
-  const onDelete = (deletedId) => {
-    const updatedItems = gear.filter((item) => deletedId !== item.id)
-    setGear(updatedItems)
-  }
+
 
   return (
     <div>
@@ -26,6 +16,7 @@ function GearHome( { gear, setGear } ) {
         gear={gear} 
         setGear={setGear} 
         handleDelete={handleDelete} 
+        handleUpdate={handleUpdate}
       />
     </div>
   );

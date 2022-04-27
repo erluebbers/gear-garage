@@ -37,6 +37,46 @@ function App() {
     });
   }
 
+  //Delete an item
+  const handleDelete = (id) => {
+    fetch(`/items/${id}`,{
+      method: 'DELETE'
+    })
+    .then(() => onDelete(id))
+  }
+
+  //update state after deleting item
+  const onDelete = (deletedId) => {
+    const updatedItems = gear.filter((item) => deletedId !== item.id)
+    setGear(updatedItems)
+  }
+
+  //update Item condition
+  const handleUpdate = (item, newCondition) => {
+    fetch(`/items/${item.id}`, {
+      method: "PATCH",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        condition: newCondition,
+        name: item.name,
+        description: item.description,
+      })
+    })
+    .then(r => r.json())
+    .then((updatedItem) => onUpdate(updatedItem))
+  }
+
+  //update state after updating item condition
+  const onUpdate = (updatedItem) => {
+    const updatedGear = gear.map((item) => {
+      if (item.id === updatedItem.id) {
+        return updatedItem
+      } else {
+        return item
+      }
+    })
+    setGear(updatedGear)
+  }
 
   return (
     <div>
@@ -53,7 +93,13 @@ function App() {
           <Homepage />
         </Route>
         <Route path="/gear">
-          <GearHome gear={gear} setGear={setGear} user={user}/>
+          <GearHome 
+            gear={gear} 
+            setGear={setGear} 
+            user={user} 
+            handleDelete={handleDelete} 
+            handleUpdate={handleUpdate}
+            />
         </Route>
         <Route path="/trips">
           <TripHome />
