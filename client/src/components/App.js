@@ -10,6 +10,7 @@ import TripHome from "./TripHome"
 function App() {
   const [user, setUser] = useState(null)
   const [gear, setGear] = useState([])
+  const [trips, setTrips] = useState([])
 
   //Auto-Login if there is a user session active
   useEffect(() => {
@@ -25,6 +26,13 @@ function App() {
     fetch("/items")
       .then(r => r.json())
       .then(data => setGear(data))
+  }, [])
+
+  //fetch trips
+  useEffect(() => {
+    fetch("/trips")
+      .then(r => r.json())
+      .then(data => setTrips(data))
   }, [])
 
 
@@ -102,7 +110,10 @@ function App() {
             />
         </Route>
         <Route path="/trips">
-          <TripHome />
+          <TripHome 
+            trips={trips}
+            setTrips={setTrips}
+          />
         </Route>
       </Switch>
     </div>

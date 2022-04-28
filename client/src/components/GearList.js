@@ -5,14 +5,14 @@ import GearCard from './GearCard';
 
 function GearList( {gear, handleDelete, handleUpdate} ) {
 
-  const list = gear.map(item => {
+  const gearList = gear.map(item => {
     return <GearCard item={item} key={item.id} handleDelete={handleDelete} handleUpdate={handleUpdate}/>
   })
 
 
   return (
     <div>
-      {list}
+      {gearList}
     </div>
   );
 }

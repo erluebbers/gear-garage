@@ -3,12 +3,12 @@ class ItemsController < ApplicationController
 
   def index
     items = Item.all
-    render json: items
+    render json: items, include: :trips
   end
 
   def show
     item = Item.find(params[:id])
-    render json: item
+    render json: item, include: :trips
   end 
 
   def create

@@ -1,14 +1,23 @@
 import '../App.css';
 import React from "react";
+import NewTripForm from "./NewTripForm";
+import TripList from "./TripList"
 
 
-function TripHome() {
+function TripHome( {trips, setTrips} ) {
 
 
 
   return (
     <div>
-      <h1>Trip Home</h1>
+      <NewTripForm 
+        trips={trips}
+        setTrips={setTrips}
+      />
+      <TripList 
+        trips={trips}
+        setTrips={setTrips}
+      />
     </div>
   );
 }

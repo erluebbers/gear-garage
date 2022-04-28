@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :packlists
-  resources :trips
+  resources :trips, only: [:index, :show, :create]
   resources :items, only: [:index, :show, :create, :destroy, :update]
   resources :users
   # Routing logic: fallback requests for React Router.
