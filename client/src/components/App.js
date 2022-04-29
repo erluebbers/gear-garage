@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Login from "./Login"
 import Homepage from "./Homepage"
 import NavBar from "./NavBar"
@@ -8,9 +8,11 @@ import GearHome from "./GearHome"
 import TripHome from "./TripHome"
 
 function App() {
+  const history = useHistory()
   const [user, setUser] = useState(null)
   const [gear, setGear] = useState([])
   const [trips, setTrips] = useState([])
+
 
   //Auto-Login if there is a user session active
   useEffect(() => {
@@ -43,6 +45,7 @@ function App() {
         setUser(null);
       }
     });
+    history.push("/")
   }
 
   //Delete an item

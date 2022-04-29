@@ -31,18 +31,19 @@ function NewTripForm( {trips, setTrips} ) {
     })
   }
 
-  const yearList = () => {
-    const years = []
-    const currentYear = new Date().getFullYear()
-    const earliestYear = 1990
-    while ( earliestYear <= currentYear ) {
-      years.push(earliestYear++)
+  function yearList() {
+    let years = []
+    let currentYear = new Date().getFullYear()
+    let earliestYear = 1990
+    while ( currentYear >= earliestYear ) {
+      years.push(currentYear--)
     }
+    years.unshift("Select Year")
     return years
   }
 
-  const yearOptions = yearList.map((year) => {
-      return <option value={year.toString()}>{year}</option>
+  const yearOptions = yearList().map((year) => {
+      return <option key={year} value={year}>{year}</option>
     })
 
   return (
