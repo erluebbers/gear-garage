@@ -2,9 +2,45 @@ import '../App.css';
 import React, { useState } from "react";
 
 
-function GearCard( {item, handleDelete, handleUpdate} ) {
-  const {id, name, description, condition} = item
+function GearCard( {item, handleDelete, handleUpdate, tripList} ) {
+  const {id, name, description, condition, trips} = item
+
   const [updatedCondition, setUpdatedCondition] = useState("")
+  const [tripId, setTripId] = useState("")
+  const [associatedTrips, setAssociatedTrips] = useState(trips)
+
+
+  const tripsDropdown = tripList.map((trip) => {
+    return <option key={trip.id} value={trip.id}>{trip.title} ({trip.year})</option>
+  })
+
+  const tripListItems = associatedTrips.map(trip => {
+    return <li key={trip.id}>{trip.title}</li>
+  })
+
+    //add item to a trip
+    const handleAddTripItem = (itemId, tripId) => {
+      fetch("/packlists", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          trip_id: tripId,
+          item_id: itemId,
+        }),
+      })
+      .then(r => r.json())
+      .then((newPacklist) => onAddItem(newPacklist))
+    }
+  
+    //update item state with new trip
+    const onAddItem = (newPacklist) => {
+      const addedTrip = tripList.find(trip => trip.id === newPacklist.trip_id)
+      setAssociatedTrips([...associatedTrips, addedTrip])
+    }
+
+    // const handleAddMovie = (newMovie) => {
+    //   setMovieInfo([...movieInfo, newMovie])
+    // }
 
   return (
     <div className="gear-card">
@@ -12,6 +48,10 @@ function GearCard( {item, handleDelete, handleUpdate} ) {
         <li>Name: {name}</li>
         <li>Description: {description}</li>
         <li>Condition: {condition}</li>
+        <p>Trips:</p>
+        <ul>
+          {tripListItems}
+        </ul>
         <button onClick={() => handleDelete(id)}>Delete Item</button>
           <label htmlFor="update-condition">Update Condition</label>
           <select 
@@ -19,7 +59,7 @@ function GearCard( {item, handleDelete, handleUpdate} ) {
             id="update-condition" 
             onChange={(e) => setUpdatedCondition(e.target.value)} 
             value={updatedCondition}
-            >
+          >
             <option value="Condition">Condition (1-5)</option>
             <option value="1">1 (poor)</option>
             <option value="2">2 (usable)</option>
@@ -28,6 +68,16 @@ function GearCard( {item, handleDelete, handleUpdate} ) {
             <option value="5">5 (excellent)</option>
           </select>
           <button onClick={() => handleUpdate(item, updatedCondition)}>Update Condition</button>
+          <label htmlFor="add-item">Add Item to a Trip Pack List</label>
+          <select
+            name="add-item"
+            id="add-item"
+            onChange={(e) => setTripId(e.target.value)}
+          >
+            <option>Select Trip</option>
+            {tripsDropdown}
+          </select>
+          <button onClick={() => handleAddTripItem(id, tripId)}>Add to Trip</button>
       </ul>
     </div>
   );

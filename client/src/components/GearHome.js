@@ -4,7 +4,7 @@ import NewGearForm from './NewGearForm';
 import GearList from './GearList';
 
 
-function GearHome( { gear, setGear, handleDelete, handleUpdate } ) {
+function GearHome( { gear, setGear, handleDelete, handleUpdate, tripList } ) {
 
 
 
@@ -17,6 +17,7 @@ function GearHome( { gear, setGear, handleDelete, handleUpdate } ) {
         setGear={setGear} 
         handleDelete={handleDelete} 
         handleUpdate={handleUpdate}
+        tripList={tripList}
       />
     </div>
   );

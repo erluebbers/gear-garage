@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./Login"
 import Homepage from "./Homepage"
 import NavBar from "./NavBar"
@@ -8,10 +8,9 @@ import GearHome from "./GearHome"
 import TripHome from "./TripHome"
 
 function App() {
-  const history = useHistory()
   const [user, setUser] = useState(null)
   const [gear, setGear] = useState([])
-  const [trips, setTrips] = useState([])
+  const [tripList, setTripList] = useState([])
 
 
   //Auto-Login if there is a user session active
@@ -34,7 +33,7 @@ function App() {
   useEffect(() => {
     fetch("/trips")
       .then(r => r.json())
-      .then(data => setTrips(data))
+      .then(data => setTripList(data))
   }, [])
 
 
@@ -45,7 +44,7 @@ function App() {
         setUser(null);
       }
     });
-    history.push("/")
+    <Redirect to="/"/>
   }
 
   //Delete an item
@@ -101,22 +100,35 @@ function App() {
           )}
         </Route>
         <Route path="/home">
-          <Homepage />
+          {user ? (
+            <Homepage user={user} />
+              ) : (
+            <Login onLogin={setUser}/>
+          )}
         </Route>
         <Route path="/gear">
-          <GearHome 
+          {user ? (
+            <GearHome 
             gear={gear} 
             setGear={setGear} 
             user={user} 
             handleDelete={handleDelete} 
             handleUpdate={handleUpdate}
+            tripList={tripList}
             />
+              ) : (
+            <Login onLogin={setUser}/>
+          )}
         </Route>
         <Route path="/trips">
-          <TripHome 
-            trips={trips}
-            setTrips={setTrips}
-          />
+        {user ? (
+            <TripHome 
+            trips={tripList}
+            setTrips={setTripList}
+            />
+              ) : (
+            <Login onLogin={setUser}/>
+          )}
         </Route>
       </Switch>
     </div>

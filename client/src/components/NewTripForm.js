@@ -2,13 +2,13 @@ import '../App.css';
 import React, { useState } from "react";
 
 
-function NewTripForm( {trips, setTrips} ) {
+function NewTripForm( {tripList, setTripList} ) {
   const [title, setTitle] = useState("")
   const [tripDescription, setTripDescription] = useState("")
   const [year, setYear] = useState(null)
 
   const handleNewTrip = (newTrip) => {
-    setTrips([...trips, newTrip])
+    setTripList([...tripList, newTrip])
   }
 
   const handleTripSubmit = (event) => {

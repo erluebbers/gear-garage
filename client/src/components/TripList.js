@@ -4,16 +4,16 @@ import TripCard from "./TripCard"
 
 
 
-function TripList( {trips, setTrips} ) {
+function TripList( {tripList} ) {
 
-  const tripList = trips.map((trip) => {
+  const tripDisplay = tripList.map((trip) => {
     return <TripCard trip={trip} key={trip.id}/>
   })
 
 
   return (
     <div>
-      {tripList}
+      {tripDisplay}
     </div>
   );
 }

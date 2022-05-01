@@ -4,19 +4,19 @@ import NewTripForm from "./NewTripForm";
 import TripList from "./TripList"
 
 
-function TripHome( {trips, setTrips} ) {
+function TripHome( {tripList, setTripList} ) {
 
 
 
   return (
     <div>
       <NewTripForm 
-        trips={trips}
-        setTrips={setTrips}
+        tripList={tripList}
+        setTripList={setTripList}
       />
       <TripList 
-        trips={trips}
-        setTrips={setTrips}
+        tripList={tripList}
+        setTripList={setTripList}
       />
     </div>
   );

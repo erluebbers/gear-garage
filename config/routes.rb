@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :packlists
+  resources :packlists, only: [:index, :create]
   resources :trips, only: [:index, :show, :create]
   resources :items, only: [:index, :show, :create, :destroy, :update]
   resources :users
