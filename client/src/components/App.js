@@ -2,7 +2,7 @@ import '../App.css';
 import React, { useEffect, useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./Login"
-import Homepage from "./Homepage"
+import Landingpage from "./Landingpage"
 import NavBar from "./NavBar"
 import GearHome from "./GearHome"
 import TripHome from "./TripHome"
@@ -94,7 +94,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           {user ? (
-            <Homepage user={user} />
+            <LandingPage user={user} />
               ) : (
             <Login onLogin={setUser}/>
           )}

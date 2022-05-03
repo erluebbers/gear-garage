@@ -2,7 +2,7 @@ import '../App.css';
 import React from "react";
 
 
-function Homepage( {user} ) {
+function Landingpage( {user} ) {
   const { username, bio, residence } = user;
 
 
@@ -15,4 +15,4 @@ function Homepage( {user} ) {
   );
 }
 
-export default Homepage;
+export default Landingpage;
