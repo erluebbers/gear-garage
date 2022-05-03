@@ -94,14 +94,14 @@ function App() {
       <Switch>
         <Route exact path="/">
           {user ? (
-            <LandingPage user={user} />
+            <Landingpage user={user} />
               ) : (
             <Login onLogin={setUser}/>
           )}
         </Route>
         <Route path="/home">
           {user ? (
-            <Homepage user={user} />
+            <Landingpage user={user} />
               ) : (
             <Login onLogin={setUser}/>
           )}
