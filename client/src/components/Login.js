@@ -4,7 +4,7 @@ import LoginForm from "./LoginForm"
 import SignupForm from "./SignupForm"
 
 
-function Login( {user, onLogin} ) {
+function Login( {onLogin} ) {
   const [existingUser, setExistingUser] = useState(true)
 
   const setUserValue = () => {

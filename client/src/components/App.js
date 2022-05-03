@@ -55,7 +55,7 @@ function App() {
     .then(() => onDelete(id))
   }
 
-  //update state after deleting item
+  //update Gear List after deleting item
   const onDelete = (deletedId) => {
     const updatedItems = gear.filter((item) => deletedId !== item.id)
     setGear(updatedItems)
