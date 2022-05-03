@@ -7,7 +7,6 @@ import TripList from "./TripList"
 function TripHome( {tripList, setTripList} ) {
 
 
-
   return (
     <div>
       <NewTripForm 
