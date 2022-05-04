@@ -99,14 +99,14 @@ function App() {
             <Login onLogin={setUser}/>
           )}
         </Route>
-        <Route path="/home">
+        <Route exact path="/home">
           {user ? (
             <Landingpage user={user} />
               ) : (
             <Login onLogin={setUser}/>
           )}
         </Route>
-        <Route path="/gear">
+        <Route exact path="/gear">
           {user ? (
             <GearHome 
             gear={gear} 
@@ -120,7 +120,7 @@ function App() {
             <Login onLogin={setUser}/>
           )}
         </Route>
-        <Route path="/trips">
+        <Route exact path="/trips">
         {user ? (
             <TripHome 
             trips={tripList}
