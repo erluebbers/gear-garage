@@ -123,7 +123,7 @@ function App() {
         <Route exact path="/trips">
         {user ? (
             <TripHome 
-            trips={tripList}
+            tripList={tripList}
             setTrips={setTripList}
             />
               ) : (
