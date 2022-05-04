@@ -8,7 +8,7 @@ function NewTripForm( {tripList, setTripList} ) {
   const [year, setYear] = useState(null)
 
   const handleNewTrip = (newTrip) => {
-    setTripList(...tripList, newTrip)
+    setTripList([...tripList, newTrip])
   }
 
   const handleTripSubmit = (event) => {
