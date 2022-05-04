@@ -124,7 +124,7 @@ function App() {
         {user ? (
             <TripHome 
             tripList={tripList}
-            setTrips={setTripList}
+            setTripList={setTripList}
             />
               ) : (
             <Login onLogin={setUser}/>
