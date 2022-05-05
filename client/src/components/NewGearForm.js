@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useState } from "react";
 
-function NewGearForm( {gear, setGear} ) {
+function NewGearForm( {gear, setGear, user} ) {
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
   const [condition, setCondition] = useState(null)
@@ -12,7 +12,7 @@ function NewGearForm( {gear, setGear} ) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    fetch("/items", {
+    fetch(`/users/${user.id}/items`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

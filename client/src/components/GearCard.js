@@ -2,7 +2,7 @@ import '../App.css';
 import React, { useState } from "react";
 
 
-function GearCard( {item, handleDelete, handleUpdate, tripList} ) {
+function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
   const {id, name, description, condition, trips} = item
 
   const [updatedCondition, setUpdatedCondition] = useState("")
@@ -20,7 +20,7 @@ function GearCard( {item, handleDelete, handleUpdate, tripList} ) {
 
     //add item to a trip
     const handleAddTripItem = (itemId, tripId) => {
-      fetch("/packlists", {
+      fetch(`/users/${user.id}/packlists`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -38,13 +38,9 @@ function GearCard( {item, handleDelete, handleUpdate, tripList} ) {
       setAssociatedTrips([...associatedTrips, addedTrip])
     }
 
-    // const handleAddMovie = (newMovie) => {
-    //   setMovieInfo([...movieInfo, newMovie])
-    // }
-
   return (
     <div className="gear-card">
-      <ul>
+      <ul className="ul">
         <li>Name: {name}</li>
         <li>Description: {description}</li>
         <li>Condition: {condition}</li>

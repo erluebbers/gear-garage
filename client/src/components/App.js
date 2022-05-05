@@ -12,30 +12,23 @@ function App() {
   const [gear, setGear] = useState([])
   const [tripList, setTripList] = useState([])
 
-
-  //Auto-Login if there is a user session active
+  
+  //Auto-Login and fetch if there is a user session active
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user)
+          fetch(`/users/${user.id}/trips`)
+            .then(r => r.json())
+            .then(data => setTripList(data))
+          fetch(`/users/${user.id}/items`)
+            .then(r => r.json())
+            .then(data => setGear(data))
+        });
       }
     });
   }, []);
-
-  //fetch Gear
-  useEffect(() => {
-    fetch("/items")
-      .then(r => r.json())
-      .then(data => setGear(data))
-  }, [])
-
-  //fetch trips
-  useEffect(() => {
-    fetch("/trips")
-      .then(r => r.json())
-      .then(data => setTripList(data))
-  }, [])
-
 
   //log a user out
   const handleLogoutClick = () => {
@@ -49,7 +42,7 @@ function App() {
 
   //Delete an item
   const handleDelete = (id) => {
-    fetch(`/items/${id}`,{
+    fetch(`/users/${user.id}/items/${id}`,{
       method: 'DELETE'
     })
     .then(() => onDelete(id))
@@ -63,7 +56,7 @@ function App() {
 
   //update Item condition
   const handleUpdate = (item, newCondition) => {
-    fetch(`/items/${item.id}`, {
+    fetch(`/users/${user.id}/items/${item.id}`, {
       method: "PATCH",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -88,47 +81,34 @@ function App() {
     setGear(updatedGear)
   }
 
+  if (!user) return <Login setUser={setUser} setTripList={setTripList} user={user} setGear={setGear}/>;
+
   return (
     <div>
       <NavBar user={user} handleLogoutClick={handleLogoutClick}/>
       <Switch>
         <Route exact path="/">
-          {user ? (
-            <Landingpage user={user} />
-              ) : (
-            <Login onLogin={setUser}/>
-          )}
+          <Landingpage user={user} />
         </Route>
         <Route exact path="/home">
-          {user ? (
-            <Landingpage user={user} />
-              ) : (
-            <Login onLogin={setUser}/>
-          )}
+          <Landingpage user={user} />
         </Route>
         <Route exact path="/gear">
-          {user ? (
-            <GearHome 
+          <GearHome 
             gear={gear} 
             setGear={setGear} 
             user={user} 
             handleDelete={handleDelete} 
             handleUpdate={handleUpdate}
             tripList={tripList}
-            />
-              ) : (
-            <Login onLogin={setUser}/>
-          )}
+          />
         </Route>
         <Route exact path="/trips">
-        {user ? (
-            <TripHome 
+          <TripHome 
             tripList={tripList}
             setTripList={setTripList}
-            />
-              ) : (
-            <Login onLogin={setUser}/>
-          )}
+            user={user}
+          />
         </Route>
       </Switch>
     </div>

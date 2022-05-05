@@ -39,7 +39,18 @@
 
 .gear-card {
   width: 300px;
-  border: 15px solid green;
-  padding: 50px;
-  margin: 20px;
+  border: 10px solid mediumorchid;
+  padding: 10px;
+  margin: 10px;
+}
+
+.ul {
+  list-style-type: none;
+}
+
+.trip-card {
+  width: 300px;
+  border: 10px solid mediumturquoise;
+  padding: 10px;
+  margin: 10px;
 }

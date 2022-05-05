@@ -3,7 +3,7 @@ import React from "react";
 import GearCard from './GearCard';
 
 
-function GearList( {gear, handleDelete, handleUpdate, tripList} ) {
+function GearList( {gear, handleDelete, handleUpdate, tripList, user} ) {
 
   const gearList = gear.map(item => {
     return <GearCard 
@@ -12,6 +12,7 @@ function GearList( {gear, handleDelete, handleUpdate, tripList} ) {
       handleDelete={handleDelete} 
       handleUpdate={handleUpdate} 
       tripList={tripList}
+      user={user}
     />
   })
 

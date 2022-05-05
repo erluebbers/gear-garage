@@ -2,7 +2,7 @@ import '../App.css';
 import React, { useState } from "react";
 
 
-function Signup( {onLogin} ) {
+function Signup( {setUser} ) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -27,7 +27,7 @@ function Signup( {onLogin} ) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => setUser(user));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

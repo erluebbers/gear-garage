@@ -2,7 +2,7 @@ import '../App.css';
 import React, { useState } from "react";
 
 
-function LoginForm( {onLogin} ) {
+function LoginForm( {setUser, setGear, setTripList} ) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -17,13 +17,21 @@ function LoginForm( {onLogin} ) {
       body: JSON.stringify({ username, password }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => {
+          setUser(user)
+          fetch(`/users/${user.id}/trips`)
+            .then(r => r.json())
+            .then(data => setTripList(data))
+          fetch(`/users/${user.id}/items`)
+            .then(r => r.json())
+            .then(data => setGear(data))
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
-    });
-    e.target.reset()
+    })
   }
+
 
   return (
     <div>

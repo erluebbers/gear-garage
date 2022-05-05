@@ -2,14 +2,15 @@ class ItemsController < ApplicationController
   before_action :authorize
 
   def index
-    items = Item.all
+    user = User.find(params[:user_id])
+    items = user.items
     render json: items, include: :trips
   end
 
-  def show
-    item = Item.find(params[:id])
-    render json: item, include: :trips
-  end 
+  # def show
+  #   item = Item.find(params[:id])
+  #   render json: item, include: :trips
+  # end 
 
   def create
     user = User.find_by(id: session[:user_id])

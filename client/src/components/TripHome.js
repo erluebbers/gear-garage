@@ -4,7 +4,7 @@ import NewTripForm from "./NewTripForm";
 import TripList from "./TripList"
 
 
-function TripHome( {tripList, setTripList} ) {
+function TripHome( {tripList, setTripList, user} ) {
 
 
   return (
@@ -12,6 +12,7 @@ function TripHome( {tripList, setTripList} ) {
       <NewTripForm 
         tripList={tripList}
         setTripList={setTripList}
+        user={user}
       />
       <TripList 
         tripList={tripList}

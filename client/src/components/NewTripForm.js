@@ -2,7 +2,7 @@ import '../App.css';
 import React, { useState } from "react";
 
 
-function NewTripForm( {tripList, setTripList} ) {
+function NewTripForm( {tripList, setTripList, user} ) {
   const [title, setTitle] = useState("")
   const [tripDescription, setTripDescription] = useState("")
   const [year, setYear] = useState(null)
@@ -13,7 +13,7 @@ function NewTripForm( {tripList, setTripList} ) {
 
   const handleTripSubmit = (event) => {
     event.preventDefault()
-    fetch("/trips", {
+    fetch(`/users/${user.id}/trips`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
