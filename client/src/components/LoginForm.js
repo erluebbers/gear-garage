@@ -35,8 +35,8 @@ function LoginForm( {setUser, setGear, setTripList} ) {
 
   return (
     <div>
-      <h3>Login</h3>
-      <form onSubmit={handleSubmit}>
+      <h3>Log in and start planning your next adventure</h3>
+      <form onSubmit={handleSubmit} className='login-form'>
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -53,7 +53,7 @@ function LoginForm( {setUser, setGear, setTripList} ) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">Login</button>
+          <button className='button' type="submit">Login</button>
       </form>
       {errors}
     </div>

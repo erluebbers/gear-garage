@@ -9,8 +9,8 @@ function NavBar({ user, handleLogoutClick}) {
   if (user) {
     return (
     <div>
-      <h2>Gear Garage</h2> <button onClick={handleLogoutClick}>Logout</button>
-      <nav>
+      <h2 className='heading' >Gear Garage</h2> <button onClick={handleLogoutClick} className='button' >Logout</button>
+      <nav className='topnav'>
         <Link to="/">Home</Link>
         <Link to="/gear">Gear</Link>
         <Link to="/trips">Trips</Link>

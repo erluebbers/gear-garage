@@ -19,12 +19,8 @@ function App() {
       if (r.ok) {
         r.json().then((user) => {
           setUser(user)
-          fetch(`/users/${user.id}/trips`)
-            .then(r => r.json())
-            .then(data => setTripList(data))
-          fetch(`/users/${user.id}/items`)
-            .then(r => r.json())
-            .then(data => setGear(data))
+          setGear(user.items)
+          setTripList(user.trips)
         });
       }
     });

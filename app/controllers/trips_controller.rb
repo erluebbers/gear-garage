@@ -7,6 +7,11 @@ class TripsController < ApplicationController
     render json: trips, include: :items
   end
 
+  def sorted_trips
+    trips = Trip.order(:title)
+    render json: trips
+  end 
+
   # def show
   #   trip = Trip.find(params[:id])
   #   render json: trip, include: :items

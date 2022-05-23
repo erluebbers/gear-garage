@@ -1,0 +1,8 @@
+{
+  "integrationFolder": "cypress/features",
+  "baseUrl": "http://localhost:4001",
+  "testFiles": "**/*.feature",
+  "ignoreTestFiles": ["*.js", "*.ts", "*.md"],
+  "viewportWidth": 1360,
+  "viewportHeight": 790
+}

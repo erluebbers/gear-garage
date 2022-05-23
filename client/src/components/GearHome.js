@@ -7,8 +7,6 @@ import GearList from './GearList';
 function GearHome( { gear, setGear, handleDelete, handleUpdate, tripList, user } ) {
 
 
-
-
   return (
     <div>
       <NewGearForm 
