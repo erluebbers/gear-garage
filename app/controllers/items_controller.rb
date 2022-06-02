@@ -7,11 +7,6 @@ class ItemsController < ApplicationController
     render json: items, include: :trips
   end
 
-  # def show
-  #   item = Item.find(params[:id])
-  #   render json: item, include: :trips
-  # end 
-
   def create
     user = User.find_by(id: session[:user_id])
     item = user.items.create(item_params)
