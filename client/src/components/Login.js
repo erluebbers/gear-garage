@@ -13,8 +13,8 @@ function Login( {setUser, setTripList, user, setGear} ) {
 
 
   return (
-    <div className='login-top'>
-      <h1 data-test="title">Gear Garage: Organizing for Adventure and Outdoor travel</h1>
+    <div className='login'>
+      <h1>Gear Garage: Organizing for Adventure and Outdoor travel</h1>
         {existingUser ? 
           <LoginForm 
             setUser={setUser} 
@@ -23,8 +23,10 @@ function Login( {setUser, setTripList, user, setGear} ) {
             setGear={setGear}
           /> :
           <SignupForm setUser={setUser}/>}
-      <label htmlFor="signup">{existingUser ? "Don't have an account? Sign up Here" : null}</label>
-      <button className='button' onClick={setUserValue} id="signup"> {existingUser ? "Create an account" : "Back to Login"}</button>
+      <div className='no-account'>
+        <label htmlFor="signup">{existingUser ? "Don't have an account? Sign up Here" : null}</label>
+        <button className='button' onClick={setUserValue} id="signup"> {existingUser ? "Create an account" : "Back to Login"}</button>
+      </div>
     </div>
   );
 }

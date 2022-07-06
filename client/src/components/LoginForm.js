@@ -30,9 +30,9 @@ function LoginForm( {setUser, setGear, setTripList} ) {
 
 
   return (
-    <div>
+    <div className='form-container'>
       <h3>Log in and start planning your next adventure</h3>
-      <form onSubmit={handleSubmit} className='login-form'>
+      <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -40,7 +40,7 @@ function LoginForm( {setUser, setGear, setTripList} ) {
             placeholder="Enter Username.."
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-          />
+          /> <br />
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -48,7 +48,7 @@ function LoginForm( {setUser, setGear, setTripList} ) {
             placeholder="Enter Password..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
+          /> <br />
           <button className='button' type="submit">Login</button>
       </form>
       {errors}

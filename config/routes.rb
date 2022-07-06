@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  
-  # resources :packlists, only: [:index, :create]
-  # resources :trips, only: [:index, :show, :create]
-  # resources :items, only: [:index, :show, :create, :destroy, :update]
-  resources :users do
-    resources :items
-    resources :trips
-    resources :packlists
+    resources :users do
+      resources :items
+      resources :trips
+      resources :packlists
   end
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

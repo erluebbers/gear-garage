@@ -7,7 +7,7 @@ function Landingpage( {user} ) {
 
 
   return (
-    <div className='landing'>
+    <div className='landing-page'>
       <h2>Hello, {username}, welcome to your own personal Gear Garage!</h2>
       <h3>Home: {residence}</h3>
       <p>{bio}</p>
