@@ -35,8 +35,10 @@ function Login( {setUser, setTripList, user, setGear} ) {
 
   return (
     <div className='login'>
-      <h1>Gear Garage: Organizing for Adventure and Outdoor travel</h1> 
-      <button className='demo-button' onClick={handleDemo}>DEMO THIS SITE</button>
+      <div>
+        <h1>Gear Garage: Organizing for Adventure and Outdoor travel</h1> 
+        <button className='demo-button' onClick={handleDemo}>DEMO THIS SITE</button>
+      </div>
         {existingUser ? 
           <LoginForm 
             setUser={setUser} 
