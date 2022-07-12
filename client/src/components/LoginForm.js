@@ -1,5 +1,6 @@
 import '../App.css';
 import React, { useState } from "react";
+import { Redirect } from 'react-router-dom';
 
 
 function LoginForm( {setUser, setGear, setTripList} ) {
@@ -26,6 +27,8 @@ function LoginForm( {setUser, setGear, setTripList} ) {
         r.json().then((err) => setErrors(err.errors));
       }
     })
+    setErrors([]);
+    <Redirect to="/"/>
   }
 
 

@@ -16,7 +16,6 @@ function TripHome( {tripList, setTripList, user} ) {
       />
       <TripList 
         tripList={tripList}
-        setTripList={setTripList}
       />
     </div>
   );

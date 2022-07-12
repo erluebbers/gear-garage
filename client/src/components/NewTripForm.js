@@ -6,6 +6,7 @@ function NewTripForm( {tripList, setTripList, user} ) {
   const [title, setTitle] = useState("")
   const [tripDescription, setTripDescription] = useState("")
   const [year, setYear] = useState(null)
+  const [errors, setErrors] = useState([])
 
   const handleNewTrip = (newTrip) => {
     setTripList([...tripList, newTrip])
@@ -21,14 +22,20 @@ function NewTripForm( {tripList, setTripList, user} ) {
         trip_description: tripDescription,
         year: year,
       }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((newTrip) => {
+          console.log(newTrip)
+          handleNewTrip(newTrip)
+        })
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
     })
-    .then(r => r.json())
-    .then(newTrip => {
-      handleNewTrip(newTrip)
-      setTitle("")
-      setTripDescription("")
-      event.target.reset()
-    })
+    setTitle("")
+    setTripDescription("")
+    event.target.reset()
+    setErrors([])
   }
 
   function yearList() {

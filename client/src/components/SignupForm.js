@@ -33,12 +33,13 @@ function Signup( {setUser} ) {
       }
     });
     e.target.reset()
+    setErrors([])
   }
 
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='signup'>
 
         <label>Username</label>
         <input
@@ -46,7 +47,7 @@ function Signup( {setUser} ) {
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        />
+        /> <br />
 
         <label>Password</label>
         <input
@@ -54,7 +55,7 @@ function Signup( {setUser} ) {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
+        /> <br />
 
         <label>Password Confirmation</label>
         <input
@@ -62,7 +63,7 @@ function Signup( {setUser} ) {
           id="password_confirmation"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
-        />
+        /> <br />
 
         <label>Residence</label>
         <input
@@ -70,7 +71,7 @@ function Signup( {setUser} ) {
           id="residence"
           value={residence}
           onChange={(e) => setResidence(e.target.value)}
-        />
+        /> <br />
 
         <label>Bio</label>
         <textarea
@@ -78,9 +79,9 @@ function Signup( {setUser} ) {
           id="bio"
           value={bio}
           onChange={(e) => setBio(e.target.value)}
-        />
+        /> <br />
 
-        <button type="submit">Sign Up</button>
+        <button type="submit">Sign Up and Log in</button>
 
         {errors}
     </form>
