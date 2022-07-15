@@ -15,7 +15,8 @@ class TripsController < ApplicationController
 
   def create
     user = User.find_by(id: session[:user_id])
-    trip = user.trips.create(trip_params.slice(:trip))
+    trip = user.trips.create(trip_params)
+    # byebug
     if trip.valid?
       render json: trip, status: :created
     else
@@ -30,7 +31,7 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.permit(:title, :trip_description, :year)
+    params.permit(:title, :trip_description, :year, :user_id)
   end
 
 
