@@ -3,13 +3,13 @@ import React, { useState } from "react";
 
 
 function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
-  const {id, name, description, condition, trips} = user
+  const {id, name, description, condition, trips} = item
 
   const [updatedCondition, setUpdatedCondition] = useState("")
   const [tripId, setTripId] = useState("")
-  const [associatedTrips, setAssociatedTrips] = useState(trips)
+  const [associatedTrips, setAssociatedTrips] = useState(tripList)
 
-  //test
+  
   const tripsDropdown = tripList.map((trip) => {
     return <option key={trip.id} value={trip.id}>{trip.title} ({trip.year})</option>
   })
