@@ -25,7 +25,6 @@ function NewTripForm( {tripList, setTripList, user} ) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((newTrip) => {
-          console.log(newTrip)
           handleNewTrip(newTrip)
         })
       } else {
