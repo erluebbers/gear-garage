@@ -20,12 +20,16 @@ function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
 
     //add item to a trip
     const handleAddTripItem = (itemId, tripId) => {
+      console.log("itemId", itemId)
+      console.log("userId", user.id)
+      console.log("tripId", parseInt(tripId))
       fetch(`/users/${user.id}/packlists`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          trip_id: tripId,
+          trip_id: parseInt(tripId),
           item_id: itemId,
+          user_id: user.id,
         }),
       })
       .then(r => r.json())
