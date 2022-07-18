@@ -9,7 +9,7 @@ function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
   const [tripId, setTripId] = useState("")
   const [associatedTrips, setAssociatedTrips] = useState(trips)
 
-
+  //test
   const tripsDropdown = tripList.map((trip) => {
     return <option key={trip.id} value={trip.id}>{trip.title} ({trip.year})</option>
   })
