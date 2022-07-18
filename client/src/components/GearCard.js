@@ -7,7 +7,7 @@ function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
 
   const [updatedCondition, setUpdatedCondition] = useState("")
   const [tripId, setTripId] = useState("")
-  const [associatedTrips, setAssociatedTrips] = useState(tripList)
+  const [associatedTrips, setAssociatedTrips] = useState(trips)
 
   
   const tripsDropdown = tripList.map((trip) => {
