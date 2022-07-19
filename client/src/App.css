@@ -97,9 +97,17 @@
 }
 
 /* Gear Component */
+
+.gearlist {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, 300px);
+}
+
 .gear-card {
   width: 300px;
-  border: 10px solid mediumorchid;
+  border: 2px solid darkslateblue;
+  background-color: dodgerblue;
   padding: 10px;
   margin: 10px;
 }

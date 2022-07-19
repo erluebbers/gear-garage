@@ -18,7 +18,7 @@ function GearList( {gear, handleDelete, handleUpdate, tripList, user} ) {
 
 
   return (
-    <div>
+    <div className='gearlist'>
       {gearList}
     </div>
   );
