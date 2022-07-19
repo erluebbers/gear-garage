@@ -100,19 +100,38 @@
 
 .gearlist {
   display: grid;
-  grid-gap: 30px;
+  grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, 300px);
 }
 
 .gear-card {
   width: 300px;
-  border: 2px solid dodgerblue;
+  border: 2px solid cadetblue;
   background-color: floralwhite;
   padding: 2px;
   margin: 20px;
 }
 
 .gear-card h4 {
+  margin: 5px;
+  display: inline;
+  /* padding: 5px; */
+}
+
+.gear-card-update {
+  display: inline-block;
+  padding: 15px;
+  margin: 5px;
+}
+
+.gear-card-add {
+  display: inline-block;
+  padding: 15px;
+  margin: 5px;
+}
+
+.gear-card-delete {
+  display: flex;
   margin: 5px;
 }
 

@@ -41,16 +41,16 @@ function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
 
   return (
     <div className='gear-card'>
-        <h4>Name:</h4> <span>{name}</span> <br />
-        <h4>Description:</h4> <span>{description}</span> <br />
-        <h4>Condition:</h4> <span>{condition}</span> <br />
+        <h4>Name:</h4><span>{name}</span> <br />
+        <h4>Description:</h4><span>{description}</span> <br />
+        <h4>Condition:</h4><span>{condition}</span> <br />
         <hr />
-        <h5>Trips:</h5>
+        <h4>Associated Trips:</h4>
         <ul>
           {associatedTrips.length === 0 ? <li>This item hasn't been on a trip yet!</li> : tripListItems}
         </ul>
         <hr />
-          <div>
+          <div className='gear-card-update'>
             <label htmlFor="update-condition">Update Condition</label>
             <select 
               name="update-condition" 
@@ -65,9 +65,9 @@ function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
               <option value="4">4 (great)</option>
               <option value="5">5 (excellent)</option>
             </select>
-            <button onClick={() => handleUpdate(item, updatedCondition)}>Update Condition</button>
+            <button onClick={() => handleUpdate(item, updatedCondition)}>Update</button>
           </div>
-          <div>
+          <div className='gear-card-add'>
             <label htmlFor="add-item">Add Item to a Trip Pack List</label>
             <select
               name="add-item"
@@ -79,7 +79,7 @@ function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
             </select>
             <button onClick={() => handleAddTripItem(id, tripId)}>Add to Trip</button>
           </div>
-          <button onClick={() => handleDelete(id)}>Delete Item</button> <br />
+          <button className='gear-card-delete' onClick={() => handleDelete(id)}>Delete Item</button> <br />
     </div>
   );
 }
