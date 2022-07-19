@@ -49,7 +49,7 @@ function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
       </ul>
         <label>Trips:</label>
         <ul>
-          {tripListItems}
+          {associatedTrips.length === 0 ? <li>This item hasn't been on a trip yet!</li> : tripListItems}
         </ul>
         <hr />
           <div>
