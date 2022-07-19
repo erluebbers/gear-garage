@@ -40,14 +40,12 @@ function GearCard( {item, handleDelete, handleUpdate, tripList, user} ) {
     }
 
   return (
-    <div className="gear-card">
-      <ul className="ul">
-        <li>Name: {name}</li>
-        <li>Description: {description}</li>
-        <li>Condition: {condition}</li>
+    <div className='gear-card'>
+        <h4>Name:</h4> <span>{name}</span> <br />
+        <h4>Description:</h4> <span>{description}</span> <br />
+        <h4>Condition:</h4> <span>{condition}</span> <br />
         <hr />
-      </ul>
-        <label>Trips:</label>
+        <h5>Trips:</h5>
         <ul>
           {associatedTrips.length === 0 ? <li>This item hasn't been on a trip yet!</li> : tripListItems}
         </ul>

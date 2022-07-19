@@ -106,14 +106,14 @@
 
 .gear-card {
   width: 300px;
-  border: 2px solid darkslateblue;
-  background-color: dodgerblue;
-  padding: 10px;
-  margin: 10px;
+  border: 2px solid dodgerblue;
+  background-color: floralwhite;
+  padding: 2px;
+  margin: 20px;
 }
 
-.ul {
-  list-style-type: none;
+.gear-card h4 {
+  margin: 5px;
 }
 
 /* Trip Component */
