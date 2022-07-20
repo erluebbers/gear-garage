@@ -17,7 +17,7 @@ function TripCard( {trip} ) {
         <li>Description: {trip_description}</li>
         <li>Year: {year}</li>
         <br />
-        <li>Items for this Trip:</li>
+        <li>Items assigned to this Trip:</li>
         {items.length === 0 ? <li>No items yet!</li> : associatedItems}
       </ul>
     </div>
