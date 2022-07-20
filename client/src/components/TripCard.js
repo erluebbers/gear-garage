@@ -4,7 +4,11 @@ import React from "react";
 
 
 function TripCard( {trip} ) {
-  const {title, trip_description, year} = trip
+  const {title, trip_description, year, items} = trip
+
+  const associatedItems = items.map(item => {
+    return <li key={item.id}>{item.name}</li>
+  })
 
   return (
     <div className="trip-card">
@@ -12,6 +16,9 @@ function TripCard( {trip} ) {
         <li>Title: {title}</li>
         <li>Description: {trip_description}</li>
         <li>Year: {year}</li>
+        <hr />
+        <li>Items for this Trip:</li>
+        {items.length === 0 ? <li>No items yet!</li> : associatedItems}
       </ul>
     </div>
   );
