@@ -1,11 +1,11 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Login from "./Login"
-import Landingpage from "./Landingpage"
-import NavBar from "./NavBar"
-import GearHome from "./GearHome"
-import TripHome from "./TripHome"
+import Login from "./features/Login/Login"
+import Landingpage from "./features/Home/Landingpage"
+import NavBar from "./features/Home/NavBar"
+import GearHome from "./features/GearHome"
+import TripHome from "./features/TripHome"
 
 function App() {
   const [user, setUser] = useState(null)
