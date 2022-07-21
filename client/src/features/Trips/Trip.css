@@ -1,0 +1,10 @@
+.trip-card {
+  width: 300px;
+  border: 2px solid cadetblue;
+  background-color: floralwhite;  
+  margin: 40px;
+}
+
+.trip-card ul {
+  list-style: none;
+}

@@ -1,4 +1,4 @@
-import '../App.css';
+import './Trip.css';
 import TripCard from "./TripCard"
 
 

@@ -1,4 +1,4 @@
-import '../App.css';
+import './Gear.css';
 import React, { useState } from "react";
 
 

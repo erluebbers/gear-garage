@@ -1,4 +1,4 @@
-import '../App.css';
+import './Trip.css';
 import React from "react";
 import NewTripForm from "./NewTripForm";
 import TripList from "./TripList"
