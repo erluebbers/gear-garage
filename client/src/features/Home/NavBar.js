@@ -11,7 +11,7 @@ function NavBar({ user, handleLogoutClick}) {
     <div className='navbar'>
       <h1>Gear Garage</h1> 
       <nav className='topnav'>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
         <Link to="/gear">Gear</Link>
         <Link to="/trips">Trips</Link>
       </nav>
