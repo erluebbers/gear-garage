@@ -2,6 +2,7 @@ import './Login.css';
 import React, { useState } from "react";
 import LoginForm from "./LoginForm"
 import SignupForm from "./SignupForm"
+import { Redirect } from 'react-router-dom';
 
 
 function Login( {setUser, setTripList, user, setGear} ) {

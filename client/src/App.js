@@ -4,8 +4,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./features/Login/Login"
 import Landingpage from "./features/Home/Landingpage"
 import NavBar from "./features/Home/NavBar"
-import GearHome from "./features/GearHome"
-import TripHome from "./features/TripHome"
+import GearHome from "./features/Gear/GearHome"
+import TripHome from "./features/Trips/TripHome"
 
 function App() {
   const [user, setUser] = useState(null)
