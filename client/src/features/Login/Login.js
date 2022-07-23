@@ -22,9 +22,10 @@ function Login( {setUser, setTripList, user, setGear} ) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setUser(user)
-          setGear(user.items)
-          setTripList(user.trips)
+          setUser(user);
+          setGear(user.items);
+          setTripList(user.trips);
+          <Redirect to="/"/>
         });
       } else {
         r.json().then((err) => setErrors(err.errors));
