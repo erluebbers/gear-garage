@@ -49,9 +49,9 @@ function NewTripForm( {tripList, setTripList, user} ) {
     })
 
   return (
-    <div>
+    <div className='new-trip'>
       <h3>Have an upcoming Trip? Add it here:</h3>
-      <form onSubmit={handleTripSubmit}>
+      <form onSubmit={handleTripSubmit} className='submit-new'>
         <label htmlFor="title">Title</label>
         <input
           type="text"

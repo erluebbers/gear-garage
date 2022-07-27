@@ -8,3 +8,35 @@
 .trip-card ul {
   list-style: none;
 }
+
+.new-trip {
+  font-size: small;
+  text-align: center;
+  border-bottom: solid cadetblue;
+  margin: 10px
+}
+
+.submit-new {
+  font-family: inherit;
+  margin: 5px;
+}
+
+.submit-new input {
+  margin: 5px;
+  display: inline-flex;
+  padding: 2px;
+  font-family: inherit;
+}
+
+.submit-new label {
+  margin: 5px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.submit-new select {
+  margin: 5px;
+  display: inline-flex;
+  padding: 2px;
+  font-family: inherit;
+}
