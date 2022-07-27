@@ -31,9 +31,9 @@ function NewGearForm( {gear, setGear, user} ) {
   }
 
   return (
-    <div>
+    <div className='new-gear'>
       <h3>Get some new gear? Add it to the library here:</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='submit-new'>
         <label htmlFor="name">Name</label>
         <input
           type="text"
