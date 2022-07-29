@@ -20,6 +20,7 @@ function TripCard( {trip} ) {
         <li>Items assigned to this Trip:</li>
         {items.length === 0 ? <li>No items yet!</li> : associatedItems}
       </ul>
+      <button>Delete Trip</button>
     </div>
   );
 }
