@@ -33,7 +33,7 @@ function App() {
         setUser(null);
       }
     });
-    <Redirect to="/"/>
+    <Redirect to="/home"/>
   }
 
   //Delete an item
