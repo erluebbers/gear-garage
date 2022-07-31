@@ -3,7 +3,7 @@ import React from "react";
 
 
 
-function TripCard( {trip, user} ) {
+function TripCard( {trip, user, tripList} ) {
   const {title, trip_description, year, items, id} = trip
 
 
@@ -20,8 +20,8 @@ function TripCard( {trip, user} ) {
     }
   
     //update Trip List after deleting trip
-    const onDeleteTrip = (deletedId) => {
-      const updatedItems = gear.filter((item) => deletedId !== item.id)
+    const onDeleteTrip = (id) => {
+      const updatedTrips = tripList.filter((trip) => id !== trip.id)
       setGear(updatedItems)
     }
 
