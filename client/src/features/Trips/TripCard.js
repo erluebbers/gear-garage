@@ -3,8 +3,9 @@ import React from "react";
 
 
 
-function TripCard( {trip} ) {
+function TripCard( {trip, user} ) {
   const {title, trip_description, year, items, id} = trip
+
 
   const associatedItems = items.map(item => {
     return <li key={item.id}>{item.name}</li>
@@ -18,7 +19,7 @@ function TripCard( {trip} ) {
       .then(() => onDeleteTrip(id))
     }
   
-    //update Gear List after deleting item
+    //update Trip List after deleting trip
     const onDeleteTrip = (deletedId) => {
       const updatedItems = gear.filter((item) => deletedId !== item.id)
       setGear(updatedItems)

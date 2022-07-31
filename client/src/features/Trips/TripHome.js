@@ -16,6 +16,7 @@ function TripHome( {tripList, setTripList, user} ) {
       />
       <TripList 
         tripList={tripList}
+        user={user}
       />
     </div>
   );
