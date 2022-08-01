@@ -17,7 +17,7 @@ function TripHome( {tripList, setTripList, user} ) {
   //update Trip List after deleting trip
   const onDeleteTrip = (id) => {
     const updatedTrips = tripList.filter((trip) => id !== trip.id)
-    setGear(updatedItems)
+    setTripList(updatedTrips)
   }
 
   return (
