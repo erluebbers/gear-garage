@@ -5,7 +5,7 @@ import TripList from "./TripList"
 
 
 function TripHome( {tripList, setTripList, user} ) {
-  
+
      //Delete a trip
      const handleDeleteTrip = (id) => {
       fetch(`/users/${user.id}/trips/${id}`,{
@@ -29,6 +29,7 @@ function TripHome( {tripList, setTripList, user} ) {
       />
       <TripList 
         tripList={tripList}
+        handleDeleteTrip={handleDeleteTrip}
         user={user}
       />
     </div>
