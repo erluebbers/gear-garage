@@ -11,22 +11,6 @@ function TripCard( {trip, user, tripList} ) {
     return <li key={item.id}>{item.name}</li>
   })
 
-    //Delete a trip
-    const handleDeleteTrip = (id) => {
-      fetch(`/users/${user.id}/trips/${id}`,{
-        method: 'DELETE'
-      })
-      .then(() => onDeleteTrip(id))
-    }
-  
-    //update Trip List after deleting trip
-    const onDeleteTrip = (id) => {
-      const updatedTrips = tripList.filter((trip) => id !== trip.id)
-      setGear(updatedItems)
-    }
-
-
-
 
   return (
     <div className="trip-card">
