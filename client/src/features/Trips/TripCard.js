@@ -3,7 +3,7 @@ import React from "react";
 
 
 
-function TripCard( {trip, user, tripList} ) {
+function TripCard( {trip, handleDeleteTrip} ) {
   const {title, trip_description, year, items, id} = trip
 
 
