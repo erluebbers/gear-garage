@@ -22,7 +22,7 @@ function TripCard( {trip, handleDeleteTrip} ) {
         <li>Items assigned to this Trip:</li>
         {items.length === 0 ? <li>No items yet!</li> : associatedItems}
       </ul>
-      <button onClick={() => handleDeleteTrip(id)}>Delete Trip</button>
+      <button className='button' onClick={() => handleDeleteTrip(id)}>Delete Trip</button>
     </div>
   );
 }

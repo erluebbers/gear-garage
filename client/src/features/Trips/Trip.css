@@ -40,3 +40,8 @@
   padding: 2px;
   font-family: inherit;
 }
+
+.button {
+  background-color: cadetblue;
+  color: #f2f2f2;
+}
