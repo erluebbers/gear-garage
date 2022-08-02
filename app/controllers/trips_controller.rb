@@ -23,6 +23,16 @@ class TripsController < ApplicationController
     end 
   end
 
+  def destroy
+    trip = Trip.find(params[:id])
+    if trip
+      trip.destroy
+      head :no_content
+    else
+      render json: {error: "trip not found"}, status: :not_found
+    end
+  end 
+
   private
 
   def authorize
